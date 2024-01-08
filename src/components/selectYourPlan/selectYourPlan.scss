@@ -1,0 +1,92 @@
+@import "../../assets/styles/variables.scss";
+
+.select-your-plan {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &__options {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    &__option {
+        display: flex;
+        align-items: flex-start;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid $light-gray;
+        gap: 14px;
+
+        &-icon {
+            width: 42px;
+        }
+
+        &-title {
+            font-weight: $weight-500;
+            color: $marine-blue;
+            margin-bottom: 4px;
+        }
+
+        &-price {
+            color: $cool-gray;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        &-free {
+            font-size: 14px;
+            color: $marine-blue;
+            font-weight: $weight-400;
+        }
+    }
+
+    &__toggle {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 13px;
+        background-color: $ghost-white;
+        border-radius: 10px;
+        gap: 24px;
+
+        &-monthly,
+        &-yearly {
+            font-weight: $weight-500;
+        }
+
+        &-monthly {
+            color: $marine-blue;
+        }
+
+        &-yearly {
+            color: $cool-gray;
+        }
+
+        &-switch {
+            width: 35px;
+            height: 18px;
+            background-color: $marine-blue;
+            display: flex;
+            align-items: center;
+            padding: 0 4px;
+            border-radius: 10px;
+        }
+
+        &-slider {
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+        }
+    }
+
+    &__monthly {
+        justify-content: flex-start;
+    }
+
+    &__yearly {
+        justify-content: flex-end;
+    }
+}

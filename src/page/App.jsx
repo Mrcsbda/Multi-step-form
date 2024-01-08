@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import "./app.scss"
 import PersonalInfo from '../components/personalInfo/PersonalInfo'
+import SelectYourPlan from '../components/selectYourPlan/SelectYourPlan'
 
 const App = () => {
-  const [stepActive, setStepActive] = useState(1)
+  const [stepActive, setStepActive] = useState(2)
   const steps = [
     {
       number: 1,
@@ -66,6 +67,9 @@ const App = () => {
             <p className='app__form-text'>{getText()}</p>
             {
               stepActive === 1 && <PersonalInfo />
+            }
+            {
+              stepActive === 2 && <SelectYourPlan />
             }
           </div>
           <div className='app__form-btn-container'>
