@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "./app.scss"
+import PersonalInfo from '../components/personalInfo/PersonalInfo'
 
 const App = () => {
   const [stepActive, setStepActive] = useState(1)
@@ -22,7 +23,7 @@ const App = () => {
     }
   ]
   const getTitle = () => {
-    switch (step) {
+    switch (stepActive) {
       case 1: return "Personal Info";
       case 2: return "Select your plan";
       case 3: return "Pick add-ons";
@@ -32,7 +33,7 @@ const App = () => {
   }
 
   const getText = () => {
-    switch (step) {
+    switch (stepActive) {
       case 1: return "Please provide your name, email address, and phone number.";
       case 2: return "You have the option of monthly or yearly billing.";
       case 3: return "Add-ons help enhance your gaming experience.";
@@ -58,6 +59,18 @@ const App = () => {
               </div>
             ))
           }
+        </section>
+        <section className='app__form-container'>
+          <div className='app__form-step-container'>
+            <h1 className='app__form-title'>{getTitle()}</h1>
+            <p className='app__form-text'>{getText()}</p>
+            {
+              stepActive === 1 && <PersonalInfo />
+            }
+          </div>
+          <div className='app__form-btn-container'>
+            <button className='app__form-btn'>Next Step</button>
+          </div>
         </section>
       </article>
     </main>

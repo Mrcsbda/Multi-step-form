@@ -1,0 +1,28 @@
+@import "../../assets/styles/variables.scss";
+
+.personal-info-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    &__label {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    &__input-name {
+        color: $marine-blue;
+        font-size: 14px;
+    }
+
+    &__input {
+        padding: 12px 16px;
+        border-radius: 5px;
+        border: 1px solid $light-gray;
+
+        &:focus {
+            outline: 1px solid $marine-blue;
+        }
+    }
+}

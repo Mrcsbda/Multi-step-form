@@ -23,8 +23,8 @@
     }
 
     &__step-number {
-        width: 33px;
-        height: 33px;
+        width: 34px;
+        height: 34px;
         color: white;
         border-radius: 50%;
         border: 1px solid white;
@@ -32,7 +32,7 @@
         justify-content: center;
         align-items: center;
         font-weight: $weight-500;
-        font-size: 15px;
+
 
         &--active {
             color: black;
@@ -44,5 +44,53 @@
 
     &__step-info {
         display: none;
+    }
+
+    &__form-container {
+        height: calc(100vh - 163px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__form-step-container {
+        width: 90vw;
+        max-width: 320px;
+        background-color: white;
+        padding: 30px 22px;
+        position: relative;
+        top: -68px;
+        border-radius: 10px;
+    }
+
+    &__form-title {
+        font-size: 22px;
+        color: $marine-blue;
+        margin-bottom: 13px;
+    }
+
+    &__form-text {
+        color: $cool-gray;
+        line-height: 24px;
+        margin-bottom: 20px;
+    }
+
+    &__form-btn-container {
+        height: 65px;
+        width: 100%;
+        background-color: white;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 15px;
+    }
+
+    &__form-btn {
+        background-color: $marine-blue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 12px 16px;
     }
 }
