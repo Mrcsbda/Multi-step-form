@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import "./app.scss"
 
 const App = () => {
+  const [stepActive, setStepActive] = useState(1)
   const steps = [
     {
       number: 1,
@@ -19,7 +21,6 @@ const App = () => {
       text: 'SUMMARY'
     }
   ]
-  const [step, setStep] = useState(1)
   const getTitle = () => {
     switch (step) {
       case 1: return "Personal Info";
@@ -41,7 +42,25 @@ const App = () => {
   }
 
   return (
-    <div>App</div>
+    <main className='app'>
+      <article className='app__card-container'>
+        <section className='app__steps-container'>
+          {
+            steps.map((step, index) => (
+              <div key={index} className='app__step-info-container'>
+                <p className={`app__step-number ${step.number === stepActive ? 'app__step-number--active' : ''}`}>
+                  {step.number}
+                </p>
+                <div className='app__step-info'>
+                  <p className='app__step-info-number'>STEP {step.number}</p>
+                  <p className='app__step-info-text'>{step.text}</p>
+                </div>
+              </div>
+            ))
+          }
+        </section>
+      </article>
+    </main>
   )
 }
 
