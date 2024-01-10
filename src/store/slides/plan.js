@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    MONTHLY: false
+    MONTHLY: true
 }
 
 export const plan = createSlice({

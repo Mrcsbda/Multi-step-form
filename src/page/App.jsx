@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import "./app.scss"
 import PersonalInfo from '../components/personalInfo/PersonalInfo'
 import SelectYourPlan from '../components/selectYourPlan/SelectYourPlan'
+import PickAddOns from '../components/pickAddOns/PickAddOns'
 
 const App = () => {
-  const [stepActive, setStepActive] = useState(2)
+  const [stepActive, setStepActive] = useState(3)
   const steps = [
     {
       number: 1,
@@ -71,8 +72,14 @@ const App = () => {
             {
               stepActive === 2 && <SelectYourPlan />
             }
+            {
+              stepActive === 3 && <PickAddOns />
+            }
           </div>
           <div className='app__form-btn-container'>
+            {
+              stepActive > 1 && <p className='app__form-go-back-text' onClick={() => setStepActive(stepActive - 1)}>Go Back</p>
+            }
             <button className='app__form-btn'>Next Step</button>
           </div>
         </section>

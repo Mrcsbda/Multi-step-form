@@ -1,0 +1,46 @@
+@import "../../assets/styles/variables.scss";
+
+.pick-add-ons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+
+    &__option-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px;
+        border: 1px solid $light-gray;
+        border-radius: 10px;
+    }
+
+    &__option {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+    }
+
+    &__option-input[type=checkbox] {
+        background-color: red;
+    }
+
+    &__option-title {
+        font-size: 14.5px;
+        font-weight: $weight-500;
+        color: $marine-blue;
+        margin-bottom: 2px;
+    }
+
+    &__option-subtitle {
+        color: $cool-gray;
+        font-size: 12px;
+    }
+
+    &__option-price {
+        font-size: 12px;
+        color: $purplish-blue;
+        opacity: 0.8;
+    }
+}
