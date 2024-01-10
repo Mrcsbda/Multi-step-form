@@ -5,10 +5,11 @@ import SelectYourPlan from '../components/selectYourPlan/SelectYourPlan'
 import PickAddOns from '../components/pickAddOns/PickAddOns'
 import { useSelector } from 'react-redux'
 import FinishingUp from '../components/finishingUp/FinishingUp'
+import ConfirmedSubscription from '../components/confirmedSubscription/ConfirmedSubscription'
 
 const App = () => {
   const { formConfirmed } = useSelector(state => state.info)
-  const [stepActive, setStepActive] = useState(4)
+  const [stepActive, setStepActive] = useState(5)
   const steps = [
     {
       number: 1,
@@ -57,7 +58,7 @@ const App = () => {
                 <p className={`app__step-number
                 ${step.number === stepActive
                     ? 'app__step-number--active'
-                    : step.number === 4 && formConfirmed ? 'app__step-number--active'
+                    : stepActive >= 4 && step.number === 4 && formConfirmed ? 'app__step-number--active'
                       : ""}`}>
                   {step.number}
                 </p>
@@ -71,8 +72,13 @@ const App = () => {
         </section>
         <section className='app__form-container'>
           <div className='app__form-step-container'>
-            <h1 className='app__form-title'>{getTitle()}</h1>
-            <p className='app__form-text'>{getText()}</p>
+            {
+              stepActive < 5 &&
+              <>
+                <h1 className='app__form-title'>{getTitle()}</h1>
+                <p className='app__form-text'>{getText()}</p>
+              </>
+            }
             {
               stepActive === 1 && <PersonalInfo />
             }
@@ -85,8 +91,11 @@ const App = () => {
             {
               stepActive === 4 && <FinishingUp />
             }
+            {
+              stepActive === 5 && <ConfirmedSubscription />
+            }
           </div>
-          <div className='app__form-btn-container'>
+          <div className={`app__form-btn-container ${stepActive === 5 ? 'app__form-btn-container--disabled' : ''}`}>
             {
               stepActive > 1 && <p className='app__form-go-back-text' onClick={() => setStepActive(stepActive - 1)}>Go Back</p>
             }

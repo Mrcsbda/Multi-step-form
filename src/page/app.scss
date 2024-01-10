@@ -56,13 +56,14 @@
     }
 
     &__form-step-container {
-        width: 90vw;
-        max-width: 320px;
+        width: 95vw;
+        max-width: 337px;
         background-color: white;
         padding: 30px 22px;
         position: relative;
         top: -68px;
         border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
 
     &__form-title {
@@ -86,6 +87,10 @@
         align-items: center;
         padding: 15px;
         position: relative;
+
+    &--disabled {
+        display: none;
+    }
     }
 
     &__form-btn {
@@ -105,6 +110,5 @@
     &__form-go-back-text {
         color: $cool-gray;
         font-weight: $weight-500;
-
     }
 }
