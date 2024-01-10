@@ -24,14 +24,14 @@ const PickAddOns = () => {
             yearlyPrice: "+$20/yr"
         }
     ]
-    const purple = "#473DFF"
+
     return (
         <div className='pick-add-ons'>
             {
                 options.map((option, index) => (
                     <div key={index} className='pick-add-ons__option-container'>
                         <div className='pick-add-ons__option'>
-
+                            <input type="checkbox" className='pick-add-ons__option-input' />
                             <div className='pick-add-ons__option-info'>
                                 <p className='pick-add-ons__option-title'>{option.title}</p>
                                 <p className='pick-add-ons__option-subtitle'>{option.subtitle}</p>

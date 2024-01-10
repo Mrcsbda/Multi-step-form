@@ -3,9 +3,12 @@ import "./app.scss"
 import PersonalInfo from '../components/personalInfo/PersonalInfo'
 import SelectYourPlan from '../components/selectYourPlan/SelectYourPlan'
 import PickAddOns from '../components/pickAddOns/PickAddOns'
+import { useSelector } from 'react-redux'
+import FinishingUp from '../components/finishingUp/FinishingUp'
 
 const App = () => {
-  const [stepActive, setStepActive] = useState(3)
+  const { formConfirmed } = useSelector(state => state.info)
+  const [stepActive, setStepActive] = useState(4)
   const steps = [
     {
       number: 1,
@@ -51,7 +54,11 @@ const App = () => {
           {
             steps.map((step, index) => (
               <div key={index} className='app__step-info-container'>
-                <p className={`app__step-number ${step.number === stepActive ? 'app__step-number--active' : ''}`}>
+                <p className={`app__step-number
+                ${step.number === stepActive
+                    ? 'app__step-number--active'
+                    : step.number === 4 && formConfirmed ? 'app__step-number--active'
+                      : ""}`}>
                   {step.number}
                 </p>
                 <div className='app__step-info'>
@@ -75,12 +82,17 @@ const App = () => {
             {
               stepActive === 3 && <PickAddOns />
             }
+            {
+              stepActive === 4 && <FinishingUp />
+            }
           </div>
           <div className='app__form-btn-container'>
             {
               stepActive > 1 && <p className='app__form-go-back-text' onClick={() => setStepActive(stepActive - 1)}>Go Back</p>
             }
-            <button className='app__form-btn'>Next Step</button>
+            <button className={`app__form-btn ${stepActive === 4 ? 'app__form-btn--confirm' : ''}`}>
+              {stepActive < 4 ? "Next Step" : "Confirm"}
+            </button>
           </div>
         </section>
       </article>

@@ -1,0 +1,83 @@
+@import "../../assets/styles/variables.scss";
+
+.finishing-up {
+    &__info-container {
+        width: 100%;
+        background-color: $alabaster;
+        border-radius: 10px;
+        padding: 16px 14px;
+        margin-bottom: 25px;
+    }
+
+    &__plan-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__plan {
+        &-title {
+            color: $marine-blue;
+            font-weight: $weight-500;
+            font-size: 15px;
+            margin-bottom: 1px;
+        }
+
+        &-change{
+            color: $cool-gray;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+
+        &-price {
+            color: $marine-blue;
+            font-weight: $weight-700;
+            font-size: 14px;
+        }
+    }
+
+    &__separator {
+        margin: 14px 0;
+        border: 1px solid $light-gray;
+        border-bottom: none;
+    }
+
+    &__add-ons {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    &__add-on {
+        display: flex;
+        justify-content: space-between;
+
+        &-title {
+            color: $cool-gray;
+            font-size: 14px;
+        }
+
+        &-price {
+            color: $marine-blue;
+            font-weight: $weight-400;
+            font-size: 14px;
+        }
+    }
+
+    &__total {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 14px;
+
+        &-title {
+            color: $cool-gray;
+            font-size: 14px;
+        }
+
+        &-price {
+            color: $purplish-blue;
+            font-size: 15px;
+            font-weight: $weight-700;
+        }
+    }
+}
