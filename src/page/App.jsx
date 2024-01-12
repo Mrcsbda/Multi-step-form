@@ -10,7 +10,7 @@ import useForm from '../hooks/UseForm'
 
 const App = () => {
   const { formConfirmed, plan } = useSelector(state => state.info)
-  const [stepActive, setStepActive] = useState(2)
+  const [stepActive, setStepActive] = useState(3)
   const steps = [
     {
       number: 1,
@@ -29,7 +29,7 @@ const App = () => {
       text: 'SUMMARY'
     }
   ]
-  const [dataForm, handleChange, resetForm] = useForm({
+  const [dataForm, handleChange] = useForm({
     name: '',
     email: '',
     number: ''
