@@ -11,20 +11,20 @@ const SelectYourPlan = () => {
         {
             title: "Arcade",
             img: "./images/icon-arcade.svg",
-            monthlyPrice: "$9/mo",
-            yearlyPrice: "$90/yr"
+            monthlyPrice: 9,
+            yearlyPrice: 90
         },
         {
             title: "Advanced",
             img: "./images/icon-advanced.svg",
-            monthlyPrice: "$12/mo",
-            yearlyPrice: "$120/yr"
+            monthlyPrice: 12,
+            yearlyPrice: 120
         },
         {
             title: "Pro",
             img: "./images/icon-pro.svg",
-            monthlyPrice: "$15/mo",
-            yearlyPrice: "$150/yr"
+            monthlyPrice: 15,
+            yearlyPrice: 150
         }
     ]
 
@@ -32,23 +32,7 @@ const SelectYourPlan = () => {
         dispatch(setMonthly())
     }
 
-    const selectPlan = (plan) => {
-        let price = ""
-        if (MONTHLY) {
-            switch (plan) {
-                case "Arcade": price = 9; break;
-                case "Advanced": price = 12; break;
-                case "Pro": price = 15; break;
-                default: return ""
-            }
-        } else {
-            switch (plan) {
-                case "Arcade": price = 90; break;
-                case "Advanced": price = 120; break;
-                case "Pro": price = 150; break;
-                default: return ""
-            }
-        }
+    const selectPlan = (plan, price) => {
         dispatch(setPlan({ plan, price }))
     }
 
@@ -61,14 +45,14 @@ const SelectYourPlan = () => {
                             key={index} className={`select-your-plan__option ${plan === option.title
                                 ? "select-your-plan__option--selected"
                                 : ""}`}
-                            onClick={() => selectPlan(option.title)}
+                            onClick={() => selectPlan(option.title, MONTHLY ? option.monthlyPrice : option.yearlyPrice)}
                         >
                             <img className='select-your-plan__option-icon' src={option.img} alt={`${option.title} icon`} />
                             <div className='select-your-plan__option-info-container'>
                                 <h4 className='select-your-plan__option-title'>{option.title}</h4>
                                 <p className='select-your-plan__option-price'>
                                     {
-                                        MONTHLY ? option.monthlyPrice : option.yearlyPrice
+                                        `$${MONTHLY ? `${option.monthlyPrice}/mo` : `${option.yearlyPrice}/yr`}`
                                     }
                                 </p>
                                 <p className='select-your-plan__option-free'>
