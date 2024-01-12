@@ -90,3 +90,21 @@
         justify-content: flex-end;
     }
 }
+
+@media screen and (min-width: 930px) {
+    .select-your-plan {
+        gap: 27px;
+
+        &__options {
+            flex-direction: row;
+            gap: 15px;
+        }
+
+        &__option {
+            flex-direction: column;
+            width: 100%;
+            padding: 18px 15px;
+            gap: 37px;
+        }
+    }
+}

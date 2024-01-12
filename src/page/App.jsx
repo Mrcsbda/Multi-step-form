@@ -9,7 +9,7 @@ import ConfirmedSubscription from '../components/confirmedSubscription/Confirmed
 
 const App = () => {
   const { formConfirmed } = useSelector(state => state.info)
-  const [stepActive, setStepActive] = useState(1)
+  const [stepActive, setStepActive] = useState(2)
   const steps = [
     {
       number: 1,
