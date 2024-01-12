@@ -26,3 +26,17 @@
         }
     }
 }
+
+@media screen and (min-width: 930px) {
+    .personal-info-form {
+        gap: 25px;
+
+        &__label {
+            gap: 7px;
+        }
+
+        &__input {
+            font-size: 15.5px;
+        }
+    }
+}
