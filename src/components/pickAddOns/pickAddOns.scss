@@ -44,7 +44,7 @@
 }
 
 input[type="checkbox"]:checked {
-    background-color: $ultra-violet;
+    background-color: $purplish-blue;
     border: none;
 }
 
@@ -69,4 +69,58 @@ input[type="checkbox"] {
     cursor: pointer;
     display: grid;
     place-content: center;
+}
+
+@media screen and (min-width: 930px) {
+    .pick-add-ons {
+        gap: 17px;
+
+        &__option-container {
+            padding: 17px 19px;
+            border-radius: 7px;
+
+            &:hover {
+                border: 1px solid $tropical-indigo;
+                cursor: pointer;
+            }
+        }
+
+        &__option {
+            gap: 18px;
+        }
+
+        &__option-title {
+            font-size: 15.5px;
+            margin-bottom: 3px;
+        }
+
+        &__option-subtitle {
+            font-size: 14px;
+        }
+
+        &__option-price {
+            font-size: 13px;
+        }
+    }
+
+
+    input[type="checkbox"]::before {
+        width: 10px;
+        height: 10px;
+    }
+
+    input[type="checkbox"] {
+        appearance: none;
+        font: inherit;
+        color: #000;
+        width: 18px;
+        height: 18px;
+        border: 1px #c3c3c3 solid;
+        border-radius: 5px;
+        transform: translateY(-.075em);
+        border: 1px solid $light-gray;
+        cursor: pointer;
+        display: grid;
+        place-content: center;
+    }
 }

@@ -105,6 +105,10 @@
             width: 100%;
             padding: 18px 15px;
             gap: 37px;
+            cursor: pointer;
+            &:hover {
+                border: 1px solid $tropical-indigo;
+            }
         }
     }
 }

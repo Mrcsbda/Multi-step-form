@@ -194,10 +194,16 @@
         &__form-btn {
             padding: 12px 20px;
             cursor: pointer;
+            &:hover {
+                opacity: 0.9;
+            }
         }
 
         &__form-go-back-text {
             cursor: pointer;
+            &:hover {
+                color: $marine-blue;
+            }
         }
 
     }
