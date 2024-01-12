@@ -175,7 +175,14 @@
             position: static;
             box-shadow: none;
             max-width: 490px;
-            padding: 40px 22px
+            padding: 40px 22px;
+
+            &--confirmed {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
         }
 
         &__form-title {
@@ -196,6 +203,10 @@
             cursor: pointer;
             &:hover {
                 opacity: 0.9;
+            }
+
+            &--confirm {
+                padding: 12px 25px;
             }
         }
 

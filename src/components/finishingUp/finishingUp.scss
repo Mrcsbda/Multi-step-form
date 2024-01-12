@@ -81,3 +81,42 @@
         }
     }
 }
+
+@media screen and (min-width: 930px) {
+    .finishing-up {
+        &__info-container {
+            padding: 19px;
+            margin-bottom: 27px;
+        }
+
+        &__plan {
+            &-title {
+                font-size: 16px;
+                margin-bottom: 3px;
+            }
+
+            &-change{
+                &:hover {
+                    cursor: pointer;
+                    color: $purplish-blue;
+                }
+            }
+
+            &-price {
+                font-size: 15px;
+            }
+        }
+
+        &__separator {
+            margin: 22px 0 17px 0;
+        }
+
+        &__total {
+            padding: 0 18px;
+
+            &-price {
+                font-size: 16px;
+            }
+        }
+    }
+}

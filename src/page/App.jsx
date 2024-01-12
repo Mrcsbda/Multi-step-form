@@ -9,7 +9,7 @@ import ConfirmedSubscription from '../components/confirmedSubscription/Confirmed
 
 const App = () => {
   const { formConfirmed } = useSelector(state => state.info)
-  const [stepActive, setStepActive] = useState(3)
+  const [stepActive, setStepActive] = useState(5)
   const steps = [
     {
       number: 1,
@@ -71,7 +71,7 @@ const App = () => {
           }
         </section>
         <section className='app__form-container'>
-          <div className='app__form-step-container'>
+          <div className={`app__form-step-container ${stepActive === 5 ? 'app__form-step-container--confirmed' : ''}`}>
             {
               stepActive < 5 &&
               <>
