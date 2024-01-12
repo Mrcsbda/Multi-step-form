@@ -6,10 +6,11 @@ import PickAddOns from '../components/pickAddOns/PickAddOns'
 import { useSelector } from 'react-redux'
 import FinishingUp from '../components/finishingUp/FinishingUp'
 import ConfirmedSubscription from '../components/confirmedSubscription/ConfirmedSubscription'
+import useForm from '../hooks/UseForm'
 
 const App = () => {
   const { formConfirmed } = useSelector(state => state.info)
-  const [stepActive, setStepActive] = useState(5)
+  const [stepActive, setStepActive] = useState(1)
   const steps = [
     {
       number: 1,
@@ -28,6 +29,13 @@ const App = () => {
       text: 'SUMMARY'
     }
   ]
+  const [dataForm, handleChange, resetForm] = useForm({
+    name: '',
+    email: '',
+    number: ''
+  })
+
+  const [isEmpty, setEmpty] = useState(false)
   const getTitle = () => {
     switch (stepActive) {
       case 1: return "Personal Info";
@@ -45,6 +53,20 @@ const App = () => {
       case 3: return "Add-ons help enhance your gaming experience.";
       case 4: return "Double-check everything looks OK before confirming.";
       default: return "";
+    }
+  }
+
+  const handleNextStep = () => {
+    switch (stepActive) {
+      case 1:
+        if (!dataForm.name || !dataForm.email || !dataForm.number) {
+          setEmpty(true)
+        } else {
+          setEmpty(false)
+          setStepActive(stepActive + 1)
+        }
+        break;
+      default: ""
     }
   }
 
@@ -80,7 +102,7 @@ const App = () => {
               </>
             }
             {
-              stepActive === 1 && <PersonalInfo />
+              stepActive === 1 && <PersonalInfo dataForm={dataForm} handleChange={handleChange} isEmpty={isEmpty} />
             }
             {
               stepActive === 2 && <SelectYourPlan />
@@ -99,7 +121,9 @@ const App = () => {
             {
               stepActive > 1 && <p className='app__form-go-back-text' onClick={() => setStepActive(stepActive - 1)}>Go Back</p>
             }
-            <button className={`app__form-btn ${stepActive === 4 ? 'app__form-btn--confirm' : ''}`}>
+            <button
+              className={`app__form-btn ${stepActive === 4 ? 'app__form-btn--confirm' : ''}`}
+              onClick={handleNextStep}>
               {stepActive < 4 ? "Next Step" : "Confirm"}
             </button>
           </div>

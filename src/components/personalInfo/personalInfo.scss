@@ -9,11 +9,24 @@
         display: flex;
         flex-direction: column;
         gap: 5px;
+        position: relative;
     }
 
     &__input-name {
         color: $marine-blue;
         font-size: 14px;
+    }
+
+    &__error {
+        position: absolute;
+        color: $strawberry-red-error;
+        right: 0;
+        font-weight: $weight-500;
+        font-size: 14px;
+
+        &--disabled {
+            display: none;
+        }
     }
 
     &__input {
@@ -23,6 +36,14 @@
 
         &:focus {
             outline: 1px solid $marine-blue;
+        }
+
+        &--error {
+            outline: 1px solid $strawberry-red;
+
+            &:focus {
+                outline: 1px solid $marine-blue;
+            }
         }
     }
 }
