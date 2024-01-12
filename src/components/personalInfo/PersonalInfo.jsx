@@ -40,7 +40,7 @@ const PersonalInfo = ({ dataForm, handleChange, isEmpty }) => {
           value={dataForm.number}
           name="number"
           className={`personal-info-form__input ${isEmpty && !dataForm.number ? "personal-info-form__input--error" : ''} `}
-          type="number"
+          type="tel"
           placeholder='e.g. +1 234 567 890' />
         <p className={`${isEmpty && !dataForm.number
           ? 'personal-info-form__error'

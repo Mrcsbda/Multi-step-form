@@ -9,8 +9,8 @@ import ConfirmedSubscription from '../components/confirmedSubscription/Confirmed
 import useForm from '../hooks/UseForm'
 
 const App = () => {
-  const { formConfirmed } = useSelector(state => state.info)
-  const [stepActive, setStepActive] = useState(1)
+  const { formConfirmed, plan } = useSelector(state => state.info)
+  const [stepActive, setStepActive] = useState(2)
   const steps = [
     {
       number: 1,
@@ -66,6 +66,10 @@ const App = () => {
           setStepActive(stepActive + 1)
         }
         break;
+      case 2:
+        if (plan) {
+          setStepActive(stepActive + 1)
+        }
       default: ""
     }
   }

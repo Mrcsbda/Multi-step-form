@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    formConfirmed: true
+    formConfirmed: true,
+    plan: "",
+    price: ""
 }
 
 export const info = createSlice({
@@ -10,8 +12,12 @@ export const info = createSlice({
     reducers: {
         setConfirmed: (state) => {
             state.confirmed = !true;
+        },
+        setPlan: (state, { payload: { plan, price }}) => {
+            state.plan = plan;
+            state.price = price
         }
     }
 })
 
-export const { setConfirmed } = info.actions
+export const { setConfirmed, setPlan } = info.actions

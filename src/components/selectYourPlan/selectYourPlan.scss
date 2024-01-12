@@ -40,6 +40,12 @@
             color: $marine-blue;
             font-weight: $weight-400;
         }
+
+        &--selected {
+            border: 1px solid $tropical-indigo;
+            background-color: $alabaster;
+
+        }
     }
 
     &__toggle {

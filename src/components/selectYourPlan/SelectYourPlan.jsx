@@ -2,8 +2,10 @@ import React from 'react'
 import "./selectYourPlan.scss"
 import { useDispatch, useSelector } from 'react-redux'
 import { setMonthly } from '../../store/slides/plan'
+import { setPlan } from '../../store/slides/info'
 const SelectYourPlan = () => {
     const { MONTHLY } = useSelector(state => state.plan)
+    const { plan } = useSelector(state => state.info)
     const dispatch = useDispatch()
     const options = [
         {
@@ -30,12 +32,37 @@ const SelectYourPlan = () => {
         dispatch(setMonthly())
     }
 
+    const selectPlan = (plan) => {
+        let price = ""
+        if (MONTHLY) {
+            switch (plan) {
+                case "Arcade": price = 9; break;
+                case "Advanced": price = 12; break;
+                case "Pro": price = 15; break;
+                default: return ""
+            }
+        } else {
+            switch (plan) {
+                case "Arcade": price = 90; break;
+                case "Advanced": price = 120; break;
+                case "Pro": price = 150; break;
+                default: return ""
+            }
+        }
+        dispatch(setPlan({ plan, price }))
+    }
+
     return (
         <div className='select-your-plan'>
             <div className='select-your-plan__options'>
                 {
                     options.map((option, index) => (
-                        <div key={index} className='select-your-plan__option'>
+                        <div
+                            key={index} className={`select-your-plan__option ${plan === option.title
+                                ? "select-your-plan__option--selected"
+                                : ""}`}
+                            onClick={() => selectPlan(option.title)}
+                        >
                             <img className='select-your-plan__option-icon' src={option.img} alt={`${option.title} icon`} />
                             <div className='select-your-plan__option-info-container'>
                                 <h4 className='select-your-plan__option-title'>{option.title}</h4>
