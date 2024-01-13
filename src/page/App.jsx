@@ -3,14 +3,16 @@ import "./app.scss"
 import PersonalInfo from '../components/personalInfo/PersonalInfo'
 import SelectYourPlan from '../components/selectYourPlan/SelectYourPlan'
 import PickAddOns from '../components/pickAddOns/PickAddOns'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import FinishingUp from '../components/finishingUp/FinishingUp'
 import ConfirmedSubscription from '../components/confirmedSubscription/ConfirmedSubscription'
 import useForm from '../hooks/UseForm'
+import { setFormConfirmed } from '../store/slides/info'
 
 const App = () => {
-  const { formConfirmed, plan } = useSelector(state => state.info)
-  const [stepActive, setStepActive] = useState(3)
+  const { formConfirmed, plan} = useSelector(state => state.info)
+  const dispatch = useDispatch()
+  const [stepActive, setStepActive] = useState(1)
   const steps = [
     {
       number: 1,
@@ -70,6 +72,13 @@ const App = () => {
         if (plan) {
           setStepActive(stepActive + 1)
         }
+        break;
+      case 3:
+        setStepActive(stepActive + 1)
+        break;
+      case 4:
+        setStepActive(stepActive + 1)
+        dispatch(setFormConfirmed())
       default: ""
     }
   }
@@ -115,7 +124,7 @@ const App = () => {
               stepActive === 3 && <PickAddOns />
             }
             {
-              stepActive === 4 && <FinishingUp />
+              stepActive === 4 && <FinishingUp setStepActive={setStepActive} />
             }
             {
               stepActive === 5 && <ConfirmedSubscription />

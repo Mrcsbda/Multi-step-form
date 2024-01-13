@@ -2,7 +2,7 @@ import React from 'react'
 import "./selectYourPlan.scss"
 import { useDispatch, useSelector } from 'react-redux'
 import { setMonthly } from '../../store/slides/plan'
-import { setPlan } from '../../store/slides/info'
+import { setPlan, setPrices } from '../../store/slides/info'
 const SelectYourPlan = () => {
     const { MONTHLY } = useSelector(state => state.plan)
     const { plan } = useSelector(state => state.info)
@@ -30,6 +30,7 @@ const SelectYourPlan = () => {
 
     const changePlan = () => {
         dispatch(setMonthly())
+        dispatch(setPrices(MONTHLY))
     }
 
     const selectPlan = (plan, price) => {

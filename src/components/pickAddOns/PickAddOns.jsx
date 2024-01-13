@@ -54,6 +54,7 @@ const PickAddOns = () => {
                             <input
                                 type="checkbox"
                                 className='pick-add-ons__option-input'
+                                checked={!!validateAddOn(option.title)}
                                 onChange={(event) => saveAddOns(event)}
                                 name={option.title}
                                 value={MONTHLY ? option.monthlyPrice : option.yearlyPrice}
