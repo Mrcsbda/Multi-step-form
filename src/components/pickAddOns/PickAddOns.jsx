@@ -29,11 +29,10 @@ const PickAddOns = () => {
         }
     ]
 
-    const saveAddOns = (event) => {
-        const { name, value } = event.target
+    const saveAddOnsClick = (name, price) => {
         const addOn = {
             name,
-            price: +value
+            price
         }
         dispatch(setAddOns(addOn))
     }
@@ -49,15 +48,13 @@ const PickAddOns = () => {
                     <div key={index}
                         className={`pick-add-ons__option-container ${validateAddOn(option.title)
                             ? 'pick-add-ons__option-container--active'
-                            : ''}`}>
+                            : ''}`}
+                            onClick={() => saveAddOnsClick(option.title, MONTHLY ? option.monthlyPrice : option.yearlyPrice)}>
                         <div className="pick-add-ons__option">
                             <input
                                 type="checkbox"
                                 className='pick-add-ons__option-input'
                                 checked={!!validateAddOn(option.title)}
-                                onChange={(event) => saveAddOns(event)}
-                                name={option.title}
-                                value={MONTHLY ? option.monthlyPrice : option.yearlyPrice}
                             />
                             <div className='pick-add-ons__option-info'>
                                 <p className='pick-add-ons__option-title'>{option.title}</p>

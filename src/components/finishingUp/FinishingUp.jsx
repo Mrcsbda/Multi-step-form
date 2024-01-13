@@ -47,7 +47,7 @@ const FinishingUp = ({ setStepActive }) => {
             </div>
             <div className='finishing-up__total'>
                 <p className='finishing-up__total-title'>Total (per {MONTHLY ? "month" : "year"})</p>
-                <p className='finishing-up__total-price'>+${`${setTotal()}${MONTHLY ? "/mo" : "/yr"}`}</p>
+                <p className='finishing-up__total-price'>{MONTHLY && "+"}${`${setTotal()}${MONTHLY ? "/mo" : "/yr"}`}</p>
             </div>
         </div>
     )
