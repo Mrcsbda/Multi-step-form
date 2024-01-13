@@ -29,7 +29,7 @@ const PickAddOns = () => {
         }
     ]
 
-    const saveAddOnsClick = (name, price) => {
+    const saveAddOns = (name, price) => {
         const addOn = {
             name,
             price
@@ -49,7 +49,7 @@ const PickAddOns = () => {
                         className={`pick-add-ons__option-container ${validateAddOn(option.title)
                             ? 'pick-add-ons__option-container--active'
                             : ''}`}
-                            onClick={() => saveAddOnsClick(option.title, MONTHLY ? option.monthlyPrice : option.yearlyPrice)}>
+                            onClick={() => saveAddOns(option.title, MONTHLY ? option.monthlyPrice : option.yearlyPrice)}>
                         <div className="pick-add-ons__option">
                             <input
                                 type="checkbox"
