@@ -118,3 +118,30 @@
         }
     }
 }
+
+
+@media screen and (min-width: 1440px) {
+    .select-your-plan {
+        &__option {
+            &-title {
+                font-size: 17px;
+            }
+
+            &-price {
+                font-size: 15px;
+            }
+
+            &-free {
+                font-size: 15px;
+            }
+        }
+
+        &__toggle {
+            &-monthly,
+            &-yearly {
+                font-weight: $weight-500;
+                font-size: 17px;
+            }
+        }
+    }
+}

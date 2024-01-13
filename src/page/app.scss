@@ -201,6 +201,7 @@
         &__form-btn {
             padding: 12px 20px;
             cursor: pointer;
+
             &:hover {
                 opacity: 0.9;
             }
@@ -212,10 +213,46 @@
 
         &__form-go-back-text {
             cursor: pointer;
+
             &:hover {
                 color: $marine-blue;
             }
         }
 
+    }
+}
+
+
+@media screen and (min-width: 1440px) {
+    .app {
+        &__step-number {
+            width: 35px;
+            height: 35px;
+            font-size: 17px;
+        }
+
+        &__step-info-number {
+            font-size: 12px;
+        }
+
+        &__step-info-text {
+            font-size: 15px;
+        }
+
+        &__form-title {
+            font-size: 34px;
+        }
+
+        &__form-text {
+            margin-bottom: 35px;
+        }
+
+        &__form-btn {
+            font-size: 16px;
+        }
+
+        &__form-go-back-text {
+            font-size: 17px;
+        }
     }
 }
